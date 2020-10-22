@@ -17,12 +17,13 @@ class tinder():
         acpt_cok.click()
         sleep(5)
 
-        try:
-            log_in = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/div/main/div/div[2]/div[2]/div/div/button[2]')
-            log_in.click()
-        except:
-            log_in_2 = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[1]/div/div[3]/span/div[1]/div/button')
-            log_in_2.click()
+        login_button = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/header/div[1]/div[2]/div/button')
+        login_button.click()
+
+        sleep(2)
+
+        log_in = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[1]/div/div[3]/span/div/div/button')
+        log_in.click()
 
         basewindow = self.driver.window_handles[0]
         popup = self.driver.switch_to_window(self.driver.window_handles[1])
