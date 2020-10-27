@@ -65,6 +65,11 @@ class tinder():
             swipe_dislike = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div[2]/div[2]/button')
             swipe_dislike.click()
 
+    def close_match_window(self):
+        close_wind = self.driver.find_element_by_xpath("//*[@id="modal-manager"]/div/div/div/div[3]/button[2]")
+        close_wind.click()
+
+
     def auto_swipe(self):
         swipes = 1000
         like, dislike = 0,0
@@ -89,7 +94,10 @@ class tinder():
                     try:
                         match_close()
                     except Exception:
-                        break
+                        try:
+                            close_match_window()
+                        except Exception:
+                            break
 
 
     def close_popup(self):
